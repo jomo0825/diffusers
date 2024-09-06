@@ -810,7 +810,6 @@ class LoRANetwork(torch.nn.Module):
 
                         if "blocks_6" in lora_name or "blocks_18" in lora_name or "blocks_9" in lora_name or "blocks_25" in lora_name:
                                 if not "attn" in lora_name and not "proj_mlp" in lora_name and not "ff_" in lora_name and not "norm" in lora_name:
-                                    print(lora_name)
                                     lora = module_class(
                                         lora_name,
                                         child_module,
