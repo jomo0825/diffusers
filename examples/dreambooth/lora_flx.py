@@ -928,7 +928,7 @@ class LoRANetwork(torch.nn.Module):
                     
             for key, value in std.items():
 
-                if "blocks.25" in key:
+                if "blocks_25" in key:
                     if "alpha" in key:
                         value=value.float()*1.2         
 
