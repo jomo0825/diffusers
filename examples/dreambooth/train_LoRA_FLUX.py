@@ -714,8 +714,8 @@ def main():
             trainable_params,
             lr=args.learning_rate,
             betas=(args.adam_beta1, args.adam_beta2),
-            weight_decay=0,
-            eps=1e-14
+            weight_decay=1e-2,
+            eps=1e-08
         )
 
     
