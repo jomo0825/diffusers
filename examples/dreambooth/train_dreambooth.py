@@ -773,7 +773,7 @@ def main():
                  args.pretrained_model_name_or_path,
                  text_encoder=accelerator.unwrap_model(text_encoder),
              )
-             pipeline.save_pretrained(args.output_dir, safe_serialization=True)     
+             pipeline.save_pretrained(args.output_dir)     
          else:
              if not os.path.exists(txt_dir):
                os.mkdir(txt_dir)
@@ -782,7 +782,7 @@ def main():
                  unet=accelerator.unwrap_model(unet),
                  text_encoder=accelerator.unwrap_model(text_encoder),
              )
-             pipeline.text_encoder.save_pretrained(txt_dir, safe_serialization=True)
+             pipeline.text_encoder.save_pretrained(txt_dir)
 
       elif args.train_only_unet:
         pipeline = StableDiffusionPipeline.from_pretrained(
@@ -790,7 +790,7 @@ def main():
             unet=accelerator.unwrap_model(unet),
             text_encoder=accelerator.unwrap_model(text_encoder),
         )
-        pipeline.save_pretrained(args.output_dir, safe_serialization=True)
+        pipeline.save_pretrained(args.output_dir)
 
         txt_dir=args.output_dir + "/text_encoder_trained"
         if os.path.exists(txt_dir):
