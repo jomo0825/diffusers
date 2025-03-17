@@ -516,8 +516,8 @@ def main():
     if not args.train_text_encoder:
         text_encoder.requires_grad_(False)
 
-    unet.enable_xformers_memory_efficient_attention()
-    vae.enable_xformers_memory_efficient_attention()
+    # unet.enable_xformers_memory_efficient_attention()
+    # vae.enable_xformers_memory_efficient_attention()
 
     if args.gradient_checkpointing:
         unet.enable_gradient_checkpointing()
