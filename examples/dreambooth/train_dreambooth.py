@@ -954,7 +954,7 @@ def main(args):
         if accelerator.is_main_process:
             for model in models:
                 sub_dir = "unet" if isinstance(model, type(unwrap_model(unet))) else "text_encoder"
-                model.save_pretrained(os.path.join(output_dir, sub_dir))
+                model.save_pretrained(os.path.join(output_dir, sub_dir), safe_serialization=True)
 
                 # make sure to pop weight so that corresponding model is not saved again
                 weights.pop()
@@ -1417,7 +1417,7 @@ def main(args):
 
         pipeline.scheduler = pipeline.scheduler.from_config(pipeline.scheduler.config, **scheduler_args)
 
-        pipeline.save_pretrained(args.output_dir)
+        pipeline.save_pretrained(args.output_dir, safe_serialization=True)
 
         if args.push_to_hub:
             save_model_card(
